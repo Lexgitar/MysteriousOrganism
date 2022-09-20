@@ -26,7 +26,7 @@ const returnRandBase = () => {
     let mutated = dnaSeq.slice();
     //console.log('mutated start ' + mutated);
      let i = Math.floor(Math.random() * 15);
-  do{   mutated.splice(i, 1, returnRandBase())}
+  do {   mutated.splice(i, 1, returnRandBase())}
   while ( returnRandBase()!== dnaSeq[i]);
       //after mutation:
       console.log('after mutation: ');
@@ -38,27 +38,27 @@ const returnRandBase = () => {
        console.log(dnaSeq);
        console.log(paequor.dna);
       let note = [];   
-  for (let i = 0; i < dnaSeq.length; i++){
+    for (let i = 0; i < dnaSeq.length; i++){
     if (dnaSeq[i] === paequor.dna[i])
          note.push(dnaSeq[i]);}
-      console.log('Common dna: '+ note);
+        console.log('Common dna: '+ note);
     let perc;
-     perc = (note.length/15)* 100;
+    perc = (note.length/15)* 100;
   //console.log(`Specimen DNA${specNum} and Specimen DNA${paequor.specimenNum} have around ${perc.toFixed(0)}% DNA in common`)  
-  return perc.toFixed(0);
+    return perc.toFixed(0);
     },
   
     willLikelySurvive(){
       let scrape=[];
-      for (let i=0; i <dnaSeq.length; i++){
-        if((dnaSeq[i] === 'C') || (dnaSeq[i] === 'G')){
-          scrape.push(dnaSeq[i]);
+            for (let i=0; i <dnaSeq.length; i++){
+            if((dnaSeq[i] === 'C') || (dnaSeq[i] === 'G')){
+             scrape.push(dnaSeq[i]);
           }
        
       }//console.log('C and G presence in Specimen DNA'+specNum +':' ); 
   
      // console.log(scrape);
-      if (scrape.length>=9){
+        if (scrape.length>=9){
         return true;
         //console.log('Likely to survive : TRUE');
       }else {
@@ -82,32 +82,32 @@ const returnRandBase = () => {
   let strongList = [];
   const generator=(howMany)=>{
     //let strongList = [];
-   let genNum =()=>{return Math.floor(Math.random()*100000)};
-  let name = 'pAequor'+ genNum;
+    let genNum =()=>{return Math.floor(Math.random()*100000)};
+    let name = 'pAequor'+ genNum;
   //console.log(name);
-   let ranList=[];
-   const makeP = ()=>{
-      for (let j=0; j<50000; j++){
-        ranList.push( mockUpStrand());
+    let ranList=[];
+        const makeP = ()=>{
+             for (let j=0; j<50000; j++){
+             ranList.push( mockUpStrand());
       }
-       ranList;
+             ranList;
     };
    
   //console.log(makeP());
   //console.log(ranList);
-  makeP();
+     makeP();
   
-  let ranNames = [];
-  ranNames = ranList.map(entry=> name = pAequorFactory(genNum(), entry));
+    let ranNames = [];
+     ranNames = ranList.map(entry=> name = pAequorFactory(genNum(), entry));
   // ranNames;
   
-  for (let i= 0; i<50000;i++){
-    if (ranNames[i].willLikelySurvive()===true && strongList.length < howMany){
-      strongList.push(ranNames[i]);
+    for (let i= 0; i<50000;i++){
+        if (ranNames[i].willLikelySurvive()===true && strongList.length < howMany){
+        strongList.push(ranNames[i]);
     }
   };
   
-  return strongList;
+        return strongList;
   
   };
   
