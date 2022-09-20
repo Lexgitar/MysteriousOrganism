@@ -111,6 +111,6 @@ const returnRandBase = () => {
   
   };
   
-  console.log(generator(30));
+  console.table(generator(30));
   
   
